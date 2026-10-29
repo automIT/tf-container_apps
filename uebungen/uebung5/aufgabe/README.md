@@ -4,6 +4,8 @@
 
 Erweitere das in Übung 3 erstellte Container App Environment um einen Log Analytics Workspace.
 
+Grundlage ist die Lösung aus Übung 3 (`uebungen/uebung3/loesung`). Dein Login wird zentral aus [`participant.yaml`](../../../participant.yaml) gelesen – Resource Group und Environment-Name (`<login>-env`) werden daraus abgeleitet.
+
 ### Anforderungen
 
 1. Verwende die folgenden existierenden Ressourcen:

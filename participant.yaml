@@ -1,0 +1,7 @@
+# EN: Enter YOUR login here (e.g. autworkshopcapp1).
+#     This is the only place for your participant number – all exercises and solutions
+#     derive the resource group, container app environment and app names from it.
+# DE: Trage hier DEINEN Login ein (z.B. autworkshopcapp1).
+#     Dies ist die einzige Stelle für deine Teilnehmernummer – alle Übungen und Lösungen
+#     leiten daraus Resource Group, Container App Environment und App-Namen ab.
+login: autworkshopcappXX

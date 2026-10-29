@@ -1,5 +1,6 @@
 variable "resource_group_name" {
-  type = string
+  type    = string
+  default = null
 }
 
 variable "cpu" {
@@ -7,9 +8,5 @@ variable "cpu" {
 }
 
 variable "memory" {
-  type    = string
-}
-
-variable "name" {
   type    = string
 }

@@ -1,5 +1,6 @@
 variable "resource_group_name" {
-  type = string
+  type    = string
+  default = null
 }
 
 variable "cpu" {
