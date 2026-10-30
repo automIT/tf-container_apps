@@ -10,7 +10,7 @@ Dein Login wird zentral aus [`participant.yaml`](../../../participant.yaml) gele
 ### Anforderungen
 
 1. Nutze das Modul `tf_module_container_app`, um eine Container App `<login>-module-app` anzulegen (siehe `local.container_app_name`)
-2. Verwende als Image `nginx:latest`
+2. Verwende als Image `nginx:latest` aus der Trainings-Registry
 3. Gib die URL der App über einen eigenen `output` aus
 4. Rolle die Container App mit `terraform apply -var-file=envs/dev.tfvars` aus
 
@@ -24,9 +24,10 @@ Dein Login wird zentral aus [`participant.yaml`](../../../participant.yaml) gele
 ### Hinweise
 
 - Als Vorlage dienen die `README.md` des Repositories `tf_module_container_app` sowie deine Modulverwendung aus Übung 7.
-- Modul-Source: `git::https://dev.azure.com/automITde/training/_git/tf_module_container_app?ref=1.0.1`
+- Modul-Source: `git::https://dev.azure.com/automITde/training/_git/tf_module_container_app?ref=2.0.0`
 - Nach dem Hinzufügen des Moduls muss `terraform init` erneut ausgeführt werden.
 - Das Modul liefert die URL der App als Output `url`.
+- Das Modul zieht Images immer aus der Trainings-Registry `automittraincapp.azurecr.io` (mit deiner Identity `<login>-uami`). Du übergibst nur `<repository>:<tag>`.
 
 ### Ziel
 

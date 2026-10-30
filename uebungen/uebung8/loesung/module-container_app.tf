@@ -1,5 +1,5 @@
 module "containerapp_nginx" {
-  source = "git::https://dev.azure.com/automITde/training/_git/tf_module_container_app?ref=1.0.1"
+  source = "git::https://dev.azure.com/automITde/training/_git/tf_module_container_app?ref=2.0.0"
 
   ca_name                      = local.container_app_name
   resource_group_name          = data.azurerm_resource_group.rg.name

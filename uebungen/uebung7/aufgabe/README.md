@@ -10,7 +10,7 @@ Ausgangspunkt ist der Code in diesem Ordner. Dein Login wird zentral aus [`parti
 
 1. Lies mit einem `data`-Block dein in Übung 3 erstelltes Container App Environment `<login>-env` aus (siehe `local.container_app_env_name`)
 2. Nutze das Modul aus dem Repository `tf_module_container_job`, um einen Container App Job `<login>-module-job` anzulegen (siehe `local.container_app_job_name`)
-3. Verwende als Image `mcr.microsoft.com/azuredocs/aci-helloworld:latest`
+3. Verwende als Image `azuredocs/aci-helloworld:latest` aus der Trainings-Registry
 4. Übergib einen Schedule (`trigger_type` und `schedule_trigger_config`)
 5. Nutze einen weiteren Parameter aus dem Modul, z. B. `env_vars` zum Übergeben von Umgebungsvariablen
 6. Rolle den Container App Job mit `terraform apply -var-file=envs/dev.tfvars` aus
@@ -28,7 +28,8 @@ Ausgangspunkt ist der Code in diesem Ordner. Dein Login wird zentral aus [`parti
 - Das Environment wird **nicht** neu angelegt, sondern nur per `data`-Block referenziert.
 - Welche Parameter das Modul erwartet, steht in der `README.md` bzw. `variables.tf` des Repositories `tf_module_container_job`.
 - `key_vault_id` und `storage_account_name` sind optional und werden in dieser Übung nicht benötigt.
-- Module aus einem Git-Repository werden mit Version eingebunden: `source = "git::https://dev.azure.com/automITde/training/_git/tf_module_container_job?ref=1.0.0"`
+- Module aus einem Git-Repository werden mit Version eingebunden: `source = "git::https://dev.azure.com/automITde/training/_git/tf_module_container_job?ref=2.0.0"`
+- Das Modul zieht Images immer aus der Trainings-Registry `automittraincapp.azurecr.io` (mit deiner Identity `<login>-uami`). Du übergibst nur `<repository>:<tag>`, den Login-Server setzt das Modul selbst davor.
 - Nach dem Hinzufügen eines Moduls muss `terraform init` erneut ausgeführt werden.
 - `aci-helloworld` ist ein Webserver und beendet sich nicht selbst – setze `replica_timeout_in_seconds` entsprechend kurz (z. B. `120`).
 - Wähle einen Cron-Ausdruck, bei dem du die Ausführung während der Schulung beobachten kannst, z. B. `*/5 * * * *`.
