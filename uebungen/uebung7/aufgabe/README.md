@@ -17,10 +17,10 @@ Ausgangspunkt ist der Code in diesem Ordner. Dein Login wird zentral aus [`parti
 
 ### Namensschema
 
-| Ressource                    | Name                    | Beispiel                       |
-|------------------------------|-------------------------|--------------------------------|
-| Container App Environment    | `<login>-env`           | `autworkshopcapp1-env`         |
-| Container App Job            | `<login>-module-job`    | `autworkshopcapp1-module-job`  |
+| Ressource                    | Name                    | Beispiel                         |
+|------------------------------|-------------------------|----------------------------------|
+| Container App Environment    | `<login>-env`           | `autworkshopcapp1-env`           |
+| Container App Job            | `<login>-module-job`    | `autworkshopcapp1-module-job`    |
 | Managed Identity (vom Modul) | `id-<login>-module-job` | `id-autworkshopcapp1-module-job` |
 
 ### Hinweise
@@ -36,4 +36,5 @@ Ausgangspunkt ist der Code in diesem Ordner. Dein Login wird zentral aus [`parti
 
 ### Ziel
 
-Der Job `<login>-module-job` ist im Azure Portal sichtbar, wird nach Zeitplan ausgeführt und zeigt im Container deine Umgebungsvariablen.
+Der Job `<login>-module-job` ist im Azure Portal sichtbar und wird nach Zeitplan ausgeführt.
+Unter *Execution history* siehst du die Ausführungen, und in der Job-Konfiguration unter *Containers → Environment variables* deine Umgebungsvariablen.
