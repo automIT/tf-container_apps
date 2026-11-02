@@ -7,6 +7,10 @@ module "containerjob_scheduled" {
   container_image              = "k8se/quickstart-jobs:latest"
   replica_timeout_in_seconds   = 120 # quickstart-jobs endet nach kurzer Zeit, der Timeout ist nur ein Sicherheitsnetz
 
+  # Tags der Resource Group übernehmen (u. a. "customer" aus der Automatisierung),
+  # sonst zeigt jeder plan eine Änderung an den Tags.
+  tags = data.azurerm_resource_group.rg.tags
+
   trigger_type = "Schedule"
   schedule_trigger_config = {
     cron_expression          = "*/5 * * * *" # alle 5 Minuten

@@ -19,6 +19,7 @@ Grundlage ist die Lösung aus Übung 3 (`uebungen/uebung3/loesung`). Dein Login 
 ### Hinweise
 
 - Verwende `data` Blöcke um auf den bestehenden Log Analytics workspace zu verweisen
+- Den Tag `customer` setzt unsere Automatisierung auf Ebene der Resource Group. Damit er nicht bei jedem `terraform plan` als Änderung erscheint, ignoriert ihn die Lösung per `lifecycle { ignore_changes = [tags["customer"]] }`.
 
 ### Ziel
 

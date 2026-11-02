@@ -6,6 +6,12 @@ resource "azurerm_user_assigned_identity" "participant" {
   name                = "${each.key}-uami"
   resource_group_name = data.azurerm_resource_group.participant[each.key].name
   location            = data.azurerm_resource_group.participant[each.key].location
+
+  # Den Tag "customer" setzt die Automatisierung auf Ebene der Resource Group,
+  # er soll nicht bei jedem plan als Änderung auftauchen.
+  lifecycle {
+    ignore_changes = [tags["customer"]]
+  }
 }
 
 resource "azurerm_role_assignment" "acr_pull" {

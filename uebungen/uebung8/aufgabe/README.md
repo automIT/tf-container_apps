@@ -26,6 +26,7 @@ Dein Login wird zentral aus [`participant.yaml`](../../../participant.yaml) gele
 - Als Vorlage dienen die `README.md` des Repositories `tf_module_container_app` sowie deine Modulverwendung aus Übung 7.
 - Modul-Source: `git::https://github.com/automIT/tf_module_container_app.git?ref=2.0.0` (oder `?ref=main` für den neuesten Stand)
 - Nach dem Hinzufügen des Moduls muss `terraform init` erneut ausgeführt werden.
+- Den Tag `customer` setzt unsere Automatisierung auf Ebene der Resource Group. Übergib dem Modul `tags = data.azurerm_resource_group.rg.tags`, sonst zeigt jeder `terraform plan` eine Änderung an den Tags.
 - Das Modul liefert die URL der App als Output `url`.
 - Das Modul zieht Images immer aus der Trainings-Registry `automittraincapp.azurecr.io` (mit deiner Identity `<login>-uami`). Du übergibst nur `<repository>:<tag>`.
 

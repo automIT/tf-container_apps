@@ -6,6 +6,10 @@ module "containerapp_helloworld" {
   container_app_environment_id = data.azurerm_container_app_environment.environment.id
   container_image              = "azuredocs/aci-helloworld:latest"
 
+  # Tags der Resource Group übernehmen (u. a. "customer" aus der Automatisierung),
+  # sonst zeigt jeder plan eine Änderung an den Tags.
+  tags = data.azurerm_resource_group.rg.tags
+
   # Optionale Aufgabe: eigene Startseite statt der Standardseite des Images
   mounted_files = [
     {

@@ -30,8 +30,8 @@ variable "images" {
   description = "Images imported into the registry: target repository:tag => source image"
   type        = map(string)
   default = {
-    "nginx:latest"                    = "docker.io/library/nginx:latest"
     "azuredocs/aci-helloworld:latest" = "mcr.microsoft.com/azuredocs/aci-helloworld:latest"
+    "k8se/quickstart-jobs:latest"     = "mcr.microsoft.com/k8se/quickstart-jobs:latest"
   }
 }
 

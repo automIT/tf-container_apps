@@ -4,4 +4,10 @@ resource "azurerm_container_registry" "acr" {
   location            = data.azurerm_resource_group.rg.location
   sku                 = var.registry_sku
   admin_enabled       = false
+
+  # Den Tag "customer" setzt die Automatisierung auf Ebene der Resource Group,
+  # er soll nicht bei jedem plan als Änderung auftauchen.
+  lifecycle {
+    ignore_changes = [tags["customer"]]
+  }
 }

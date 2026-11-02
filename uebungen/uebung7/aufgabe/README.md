@@ -32,6 +32,7 @@ Ausgangspunkt ist der Code in diesem Ordner. Dein Login wird zentral aus [`parti
   Mit `?ref=` wählst du einen Tag (z. B. `2.0.0`) oder einen Branch (z. B. `main`). Ein Tag ist fest, `main` liefert immer den neuesten Stand.
 - Das Modul zieht Images immer aus der Trainings-Registry `automittraincapp.azurecr.io` (mit deiner Identity `<login>-uami`). Du übergibst nur `<repository>:<tag>`, den Login-Server setzt das Modul selbst davor.
 - Nach dem Hinzufügen eines Moduls muss `terraform init` erneut ausgeführt werden.
+- Den Tag `customer` setzt unsere Automatisierung auf Ebene der Resource Group. Übergib dem Modul `tags = data.azurerm_resource_group.rg.tags`, sonst zeigt jeder `terraform plan` eine Änderung an den Tags.
 - Ein Job muss sich selbst beenden: Nur wenn der Container mit Exit-Code 0 endet, gilt die Ausführung als erfolgreich. `quickstart-jobs` läuft kurz und beendet sich dann. Ein Webserver-Image (z. B. `aci-helloworld` aus Übung 8) würde dagegen bis zum `replica_timeout_in_seconds` laufen und als *Failed* enden.
 - Wähle einen Cron-Ausdruck, bei dem du die Ausführung während der Schulung beobachten kannst, z. B. `*/5 * * * *`.
 

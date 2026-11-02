@@ -5,9 +5,11 @@ und importiert die in den Übungen verwendeten Images:
 
 | Image in der ACR                    | Quelle                                              |
 |-------------------------------------|-----------------------------------------------------|
-| `nginx:latest`                      | `docker.io/library/nginx:latest`                    |
 | `azuredocs/aci-helloworld:latest`   | `mcr.microsoft.com/azuredocs/aci-helloworld:latest` |
+| `k8se/quickstart-jobs:latest`       | `mcr.microsoft.com/k8se/quickstart-jobs:latest`     |
 
+Es werden bewusst nur Images aus `mcr.microsoft.com` genutzt: Importe von Docker Hub bzw. AWS ECR Public
+scheitern über Azure häufig an Pull-Limits (HTTP 429 `TOOMANYREQUESTS`).
 Zusätzlich wird pro Teilnehmer (`autworkshopcapp1` … `autworkshopcapp20`) eine User Assigned Identity
 `<login>-uami` in dessen Resource Group angelegt und mit `AcrPull` auf die Registry berechtigt (für Übung 6).
 Anzahl und Präfix: Variablen `participant_count` / `participant_prefix`.
@@ -32,8 +34,8 @@ terraform apply
 ```
 
 Registry-Name, SKU und Image-Liste lassen sich über die Variablen in `variables.tf` anpassen.
-Ein Image neu importieren (z. B. für ein aktuelles `nginx:latest`):
+Ein Image neu importieren (z. B. für ein aktuelles `aci-helloworld:latest`):
 
 ```bash
-terraform apply -replace='terraform_data.image_import["nginx:latest"]'
+terraform apply -replace='terraform_data.image_import["azuredocs/aci-helloworld:latest"]'
 ```

@@ -26,9 +26,15 @@ resource "azurerm_container_app" "containerapp" {
   template {
     container {
       name   = "app"
-      image  = "${data.azurerm_container_registry.acr.login_server}/nginx:latest"
+      image  = "${data.azurerm_container_registry.acr.login_server}/azuredocs/aci-helloworld:latest"
       cpu    = var.cpu
       memory = var.memory
     }
+  }
+
+  # Den Tag "customer" setzt die Automatisierung auf Ebene der Resource Group,
+  # er soll nicht bei jedem plan als Änderung auftauchen.
+  lifecycle {
+    ignore_changes = [tags["customer"]]
   }
 }
