@@ -1,5 +1,5 @@
 module "containerjob_scheduled" {
-  source = "git::https://dev.azure.com/automITde/training/_git/tf_module_container_job?ref=2.0.0"
+  source = "git::https://github.com/automIT/tf_module_container_job.git?ref=2.0.0"
 
   cj_name                      = local.container_app_job_name
   resource_group_name          = data.azurerm_resource_group.rg.name

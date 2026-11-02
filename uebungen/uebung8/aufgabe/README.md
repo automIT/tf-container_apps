@@ -2,7 +2,7 @@
 
 ## Aufgabenstellung
 
-Lege eine Container App an. Verwende dafür das Modul aus dem Repository `tf_module_container_app` im Azure DevOps Projekt `training`.
+Lege eine Container App an. Verwende dafür das Modul aus dem GitHub-Repository [`tf_module_container_app`](https://github.com/automIT/tf_module_container_app).
 
 Ausgangspunkt ist der Code in diesem Ordner: Resource Group und dein Container App Environment `<login>-env` aus Übung 3 werden bereits per `data`-Block gelesen.
 Dein Login wird zentral aus [`participant.yaml`](../../../participant.yaml) gelesen.
@@ -24,7 +24,7 @@ Dein Login wird zentral aus [`participant.yaml`](../../../participant.yaml) gele
 ### Hinweise
 
 - Als Vorlage dienen die `README.md` des Repositories `tf_module_container_app` sowie deine Modulverwendung aus Übung 7.
-- Modul-Source: `git::https://dev.azure.com/automITde/training/_git/tf_module_container_app?ref=2.0.0`
+- Modul-Source: `git::https://github.com/automIT/tf_module_container_app.git?ref=2.0.0` (oder `?ref=main` für den neuesten Stand)
 - Nach dem Hinzufügen des Moduls muss `terraform init` erneut ausgeführt werden.
 - Das Modul liefert die URL der App als Output `url`.
 - Das Modul zieht Images immer aus der Trainings-Registry `automittraincapp.azurecr.io` (mit deiner Identity `<login>-uami`). Du übergibst nur `<repository>:<tag>`.
