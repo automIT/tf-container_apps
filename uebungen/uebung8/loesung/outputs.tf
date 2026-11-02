@@ -1,3 +1,3 @@
 output "container_app_url" {
-  value = module.containerapp_nginx.url
+  value = module.containerapp_helloworld.url
 }

@@ -10,7 +10,7 @@ Dein Login wird zentral aus [`participant.yaml`](../../../participant.yaml) gele
 ### Anforderungen
 
 1. Nutze das Modul `tf_module_container_app`, um eine Container App `<login>-module-app` anzulegen (siehe `local.container_app_name`)
-2. Verwende als Image `nginx:latest` aus der Trainings-Registry
+2. Verwende als Image `azuredocs/aci-helloworld:latest` aus der Trainings-Registry
 3. Gib die URL der App über einen eigenen `output` aus
 4. Rolle die Container App mit `terraform apply -var-file=envs/dev.tfvars` aus
 
@@ -31,4 +31,23 @@ Dein Login wird zentral aus [`participant.yaml`](../../../participant.yaml) gele
 
 ### Ziel
 
-Die nginx-Startseite ist unter der URL deiner Container App im Browser erreichbar.
+Die Seite „Welcome to Azure Container Instances!“ ist unter der URL deiner Container App im Browser erreichbar.
+
+## Optionale Aufgabe: eigene Startseite
+
+Ersetze die Standardseite des Images durch eine eigene HTML-Seite, die du per Terraform-Variable übergibst.
+
+1. Lege eine Variable `welcome_html` (Typ `string`) an
+2. Setze ihren Wert in `envs/dev.tfvars` auf eine eigene HTML-Seite (Tipp: Heredoc-Syntax `<<-HTML ... HTML`)
+3. Übergib die Seite über den Modul-Parameter `mounted_files` an die Container App
+4. Rolle die Änderung erneut mit `terraform apply -var-file=envs/dev.tfvars` aus
+
+### Hinweise
+
+- Das Image `aci-helloworld` liefert die Datei `/usr/src/app/index.html` aus. Diesen Pfad musst du in `mounted_files` als `path` angeben.
+- Das Modul legt jede Datei als Secret an und mountet sie in den Container. Bei geändertem Inhalt erzeugt es automatisch eine neue Revision.
+- Ändere danach den Inhalt von `welcome_html` und beobachte im Portal, wie eine neue Revision entsteht.
+
+### Ziel
+
+Unter der URL deiner Container App wird deine eigene Seite angezeigt.
