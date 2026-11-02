@@ -5,7 +5,7 @@ module "containerjob_scheduled" {
   resource_group_name          = data.azurerm_resource_group.rg.name
   container_app_environment_id = data.azurerm_container_app_environment.environment.id
   container_image              = "k8se/quickstart-jobs:latest"
-  replica_timeout_in_seconds   = 120 # aci-helloworld ist ein Webserver und beendet sich nicht selbst
+  replica_timeout_in_seconds   = 120 # quickstart-jobs endet nach kurzer Zeit, der Timeout ist nur ein Sicherheitsnetz
 
   trigger_type = "Schedule"
   schedule_trigger_config = {
