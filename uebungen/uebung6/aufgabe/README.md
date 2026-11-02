@@ -2,11 +2,19 @@
 
 ## Aufgabenstellung
 
-Bisher zieht deine Container App das öffentliche Image `mcr.microsoft.com/azuredocs/aci-helloworld:latest`.
-Stelle die Container App so um, dass sie das Image aus der privaten Azure Container Registry des Trainings zieht.
+Die Container App in diesem Ordner zieht das öffentliche Image `mcr.microsoft.com/azuredocs/aci-helloworld:latest`.
+Stelle sie so um, dass sie das Image aus der privaten Azure Container Registry des Trainings zieht.
 
-Ausgangspunkt ist der Code in diesem Ordner (Stand: Lösung Übung 3). Dein Login wird zentral aus
+Ausgangspunkt ist der Code in diesem Ordner: Er legt eine eigene Container App `<login>-acr-app` an und liest
+dein Container App Environment `<login>-env` aus Übung 3 per `data`-Block. Dein Login wird zentral aus
 [`participant.yaml`](../../../participant.yaml) gelesen.
+
+### Namensschema
+
+| Ressource                 | Name              | Beispiel                   |
+|---------------------------|-------------------|----------------------------|
+| Container App Environment | `<login>-env`     | `autworkshopcapp1-env`     |
+| Container App             | `<login>-acr-app` | `autworkshopcapp1-acr-app` |
 
 ### Anforderungen
 
@@ -20,6 +28,7 @@ Ausgangspunkt ist der Code in diesem Ordner (Stand: Lösung Übung 3). Dein Logi
 
 ### Hinweise
 
+- Das Environment wird **nicht** neu angelegt, sondern nur per `data`-Block referenziert. Übung 3 muss also angewendet sein.
 - Die Identity hat bereits die Rolle `AcrPull` auf der Registry – du musst keine Rollen zuweisen.
 - Der Login-Server der Registry steht im Attribut `login_server` der Data Source.
 - Ohne `registry`-Block schlägt das Deployment fehl, weil die Registry keinen anonymen Zugriff erlaubt.
@@ -29,6 +38,7 @@ Ausgangspunkt ist der Code in diesem Ordner (Stand: Lösung Übung 3). Dein Logi
 
 Stelle auch die beiden Container App Jobs aus Übung 4 auf das Image
 `<login_server>/k8se/quickstart-jobs:latest` aus der Registry um.
+Arbeite dafür in deinem Ordner aus Übung 4, denn dort liegen die Jobs im State. Ergänze dort die `data`-Blöcke für Registry und Identity sowie `identity`- und `registry`-Block an den Jobs.
 
 ### Ziel
 

@@ -5,8 +5,10 @@ variable "resource_group_name" {
 
 variable "cpu" {
   type    = number
+  default = 0.5
 }
 
 variable "memory" {
   type    = string
+  default = "1Gi"
 }

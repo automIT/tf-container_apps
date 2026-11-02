@@ -44,5 +44,5 @@ variable "participant_prefix" {
 variable "participant_count" {
   description = "Number of participants; one user assigned identity with AcrPull is created per participant"
   type        = number
-  default     = 20
+  default     = 35
 }

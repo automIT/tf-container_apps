@@ -1,6 +1,6 @@
 resource "azurerm_container_app" "containerapp" {
   name                         = local.container_app_name
-  container_app_environment_id = azurerm_container_app_environment.environment.id
+  container_app_environment_id = data.azurerm_container_app_environment.environment.id
   resource_group_name          = data.azurerm_resource_group.rg.name
   revision_mode                = "Single"
 
